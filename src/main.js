@@ -8,18 +8,22 @@ function calculate(){
     ipValue=initialPrice.value;
     qsValue=quantityStocks.value;
     cpValue=currentPrice.value;
-    if((ipValue || qsValue || cpValue)<=0){
+    if(ipValue==""||qsValue==""||cpValue==""){
+        message.innerHTML="Please enter all input values";
+        return
+    }
+    if(ipValue<=0 || qsValue<=0 || cpValue<=0){
         message.innerHTML="Please enter value greater than 0";
         return;
     }
 
     if(ipValue>cpValue){
         var loss=(ipValue-cpValue)*qsValue;
-        var lossPercentage=((loss/ipValue)*100).toFixed(2);
-        message.innerHTML=`Hey, the loss is ${loss} and the percent is ${lossPercentage}%`
+        var lossPercentage=((loss/(ipValue*qsValue))*100).toFixed(2);
+        message.innerHTML=`Hey, the loss is ${loss} and the percent is -${lossPercentage}%`
     }else if(ipValue<cpValue){
         var profit=(cpValue-ipValue)*qsValue;
-        var profitPercentage=((profit/ipValue)*100).toFixed(2);
+        var profitPercentage=((profit/(ipValue*qsValue))*100).toFixed(2);
 
         message.innerHTML=`Hey, the profit is ${profit} and the percent is ${profitPercentage}%`
     }
