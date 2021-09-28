@@ -20,12 +20,12 @@ function calculate(){
     if(ipValue>cpValue){
         var loss=(ipValue-cpValue)*qsValue;
         var lossPercentage=((loss/(ipValue*qsValue))*100).toFixed(2);
-        message.innerHTML=`Hey, the loss is ${loss} and the percent is -${lossPercentage}%`
+        message.innerHTML=`Hey, the loss is ${loss} and the loss percent is ${lossPercentage}%`
     }else if(ipValue<cpValue){
         var profit=(cpValue-ipValue)*qsValue;
         var profitPercentage=((profit/(ipValue*qsValue))*100).toFixed(2);
 
-        message.innerHTML=`Hey, the profit is ${profit} and the percent is ${profitPercentage}%`
+        message.innerHTML=`Hey, the profit is ${profit} and the profit percent is ${profitPercentage}%`
     }
     else{
         message.innerHTML=`No pain no gain and no gain no pain`
