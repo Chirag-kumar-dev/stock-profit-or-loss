@@ -8,6 +8,10 @@ function calculate(){
     ipValue=initialPrice.value;
     qsValue=quantityStocks.value;
     cpValue=currentPrice.value;
+    if((ipValue || qsValue || cpValue)<=0){
+        message.innerHTML="Please enter value greater than 0";
+        return;
+    }
 
     if(ipValue>cpValue){
         var loss=(ipValue-cpValue)*qsValue;
